@@ -89,19 +89,25 @@
 
             result += `<h3 ${titleStyle}>${target}:${standard.length+obj.length+fun.length+other.length+unknown.length}</h3>`
 
-            result += `<h4 ${subTitleStyle}>普通成员:${standard.length}</h4>`
-            logKey(standard)
+            if (standard.length > 0) {
+                result += `<h4 ${subTitleStyle}>普通成员:${standard.length}</h4>`
+                logKey(standard)
+            }
 
-            result += `<h4 ${subTitleStyle}>对象成员:${obj.length}</h4>`
-            logKey(obj)
+            if (obj.length) {
+                result += `<h4 ${subTitleStyle}>对象成员:${obj.length}</h4>`
+                logKey(obj)
+            }
 
             if (fun.length > 0) {
                 result += `<h4 ${subTitleStyle}>方法成员:${fun.length}</h4>`
                 logKey(fun)
             }
 
-            result += `<h4 ${subTitleStyle}>其他成员:${other.length}</h4>`
-            logKey(other)
+            if (other.length > 0) {
+                result += `<h4 ${subTitleStyle}>其他成员:${other.length}</h4>`
+                logKey(other)
+            }
 
             if (unknown.length) {
                 result += `<h4 ${subTitleStyle}>未知成员:${unknown.length}</h4>`
